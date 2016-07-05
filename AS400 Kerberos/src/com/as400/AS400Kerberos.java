@@ -35,11 +35,9 @@ import org.ietf.jgss.GSSManager;
 public class AS400Kerberos {
   private AS400 as400;
 
-
   public AS400 getAS400() {
     return as400;
   }
-  
   
   public void connect(String systemName) {
     File configuration = null;
@@ -72,14 +70,12 @@ public class AS400Kerberos {
           as400.setGSSCredential(cred);
           as400.connectService(AS400.SIGNON);
         } catch (Exception e) {
-        }
+          }
         return as400;
       });
-      
     } catch(Exception e) {
-      e.printStackTrace();
-    }
-    
+        e.printStackTrace();
+      }
   }
   
   public void disconnect() {
@@ -88,24 +84,11 @@ public class AS400Kerberos {
   
   public void testConnection() {
     try {
-      
       System.out.println(as400.getSystemName());
       System.out.println(as400.getVersion() + "." + as400.getRelease());
       System.out.println(as400.getUserId());
     } catch(Exception e) {
-      e.printStackTrace();
-    }
-    
+        e.printStackTrace();
+      }
   }
-
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String[] args) {
-    AS400Kerberos system = new AS400Kerberos();
-    system.connect(args[0]);
-    system.testConnection();
-    system.disconnect();
-  }
-  
 }
