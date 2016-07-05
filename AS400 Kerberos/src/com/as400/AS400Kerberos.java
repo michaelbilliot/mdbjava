@@ -74,8 +74,8 @@ public class AS400Kerberos {
         return as400;
       });
     } catch(Exception e) {
-        e.printStackTrace();
-      }
+      e.printStackTrace();
+    }
   }
   
   public void disconnect() {
