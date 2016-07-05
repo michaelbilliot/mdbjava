@@ -97,15 +97,4 @@ public class AS400Kerberos {
     }
     
   }
-
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String[] args) {
-    AS400Kerberos system = new AS400Kerberos();
-    system.connect(args[0]);
-    system.testConnection();
-    system.disconnect();
-  }
-  
 }
